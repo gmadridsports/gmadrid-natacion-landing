@@ -20,7 +20,7 @@ export default function Home() {
                             Acceso a la aplicación
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Casi estás. Para acceder a la aplicación, <a href={`https://gmadridnatacion.bertamini.net/${window?.location?.pathname}`}>pincha aquí</a>
+                            Casi estás. Para acceder a la aplicación, <a href={`https://gmadridnatacion.bertamini.net/login-callback`}>pincha aquí</a>
                         </p>
                         {/*<div className="mt-4 sm:mt-6">*/}
                         {/*    <a*/}
