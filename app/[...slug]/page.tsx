@@ -2,7 +2,8 @@
 import Image from 'next/image'
 
 export default function Home() {
-    const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net');
+    // const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net');
+    const appLink = window.location.href;
     return(
         <>
             <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
@@ -25,7 +26,7 @@ export default function Home() {
                             Casi estás. Para acceder a la aplicación, <a href={`https://gmadridnatacion.bertamini.net/login-callback`}>pincha aquí</a> o <a href="net.bertamini.gmadridnatacion://login-callback">aquí</a> y <a href="https://movistar.es/citaprevia">test</a> y <a href="https://appweb.movistar.es/pages/appointment-booking">app booking</a> .
                         </p>
                         <p>
-                            <a href={appLink}>Link app!</a>
+                            <a href={appLink} target="_blank">Link app!</a>
                         </p>
                         {/*<div className="mt-4 sm:mt-6">*/}
                         {/*    <a*/}
