@@ -2,8 +2,8 @@
 import Image from 'next/image'
 
 export default function Home() {
-    const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net');
-    // const appLink = window.location.href;
+    const appLink = (typeof window !== "undefined") ? window?.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net') ?? '#' : '#';
+
     return(
         <>
             <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
@@ -23,19 +23,16 @@ export default function Home() {
                             Acceso a la aplicación
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Casi estás. Para acceder a la aplicación, <a href={`https://gmadridnatacion.bertamini.net/login-callback`}>pincha aquí</a> o <a href="net.bertamini.gmadridnatacion://login-callback">aquí</a> y <a href="https://movistar.es/citaprevia">test</a> y <a href="https://appweb.movistar.es/pages/appointment-booking">app booking</a> .
+                            Casi estás.
                         </p>
-                        <p>
-                            <a href={appLink} target="_blank">Link app!</a>
+                        <p className="mt-6">
+                            <a
+                                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue-500 hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
+                                href={appLink}
+                            >
+                                Acceder
+                            </a>
                         </p>
-                        {/*<div className="mt-4 sm:mt-6">*/}
-                        {/*    <a*/}
-                        {/*        className="inline-block px-5 py-3 rounded-lg transform transition bg-blue-500 hover:bg-indigo-400 hover:-translate-y-0.5 focus:ring-indigo-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-indigo-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"*/}
-                        {/*        href="#"*/}
-                        {/*    >*/}
-                        {/*        Instalar*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
                 <div className="hidden relative lg:block 2xl:col-span-2">
