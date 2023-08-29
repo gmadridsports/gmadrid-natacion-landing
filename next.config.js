@@ -1,16 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        headers() {
+        headers: async () => {
             return [
                 {
                     source: "/.well-known/apple-app-site-association",
-                    headers: [{ key: "content-type", value: "application/json" }]
+                    headers: [{key: "Content-Type", value: "application/json"}]
                 }
             ];
-        }
-    },
-
+        },
 }
 
 module.exports = nextConfig
