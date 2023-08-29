@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async rewrites() {
-        return [
-            {
-                source: '/.well-known/apple-app-site-association',
-                destination: '/.well-known/apple-app-site-association.json',
-            },
-        ]
+    experimental: {
+        headers() {
+            return [
+                {
+                    source: "/.well-known/apple-app-site-association",
+                    headers: [{ key: "content-type", value: "application/json" }]
+                }
+            ];
+        }
     },
 
 }
