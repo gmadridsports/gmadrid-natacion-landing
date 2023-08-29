@@ -41,7 +41,8 @@ export default function Home() {
                     />
                 </div>
             </div>
-            <div className="fixed bottom-0 left-0 flex h-25 w-full bg-slate-50/70 justify-center">
+
+            <div className="lg:fixed bottom-0 left-0 flex h-25 w-full bg-slate-50/70 justify-center">
                 <a
                     className="flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-4"
                     href="https://www.bertamini.net"
