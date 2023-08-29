@@ -1,7 +1,7 @@
 {
   "applinks": {
-      "apps": [],
-      "details": [
+    "apps": [],
+    "details": [
       {
         "appID": "3DF559AM9R.net.bertamini.gmadrid.natacion.gmadridNatacion",
         "paths": ["*"]
