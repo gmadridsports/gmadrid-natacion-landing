@@ -1,8 +1,16 @@
 "use client"
 import Image from 'next/image'
+import {useEffect, useMemo, useState} from "react";
 
 export default function Home() {
-    const appLink = (typeof window !== "undefined") ? window?.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net') ?? '#' : '#';
+    const [appLink, setAppLink] = useState('#');
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        setAppLink(window?.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net'));
+
+    }, [window]);
 
     return(
         <>
