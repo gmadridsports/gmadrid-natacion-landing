@@ -1,6 +1,8 @@
+"use client"
 import Image from 'next/image'
 
 export default function Home() {
+    const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatation.bertamini.net');
     return(
         <>
             <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
@@ -21,6 +23,9 @@ export default function Home() {
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
                             Casi estás. Para acceder a la aplicación, <a href={`https://gmadridnatacion.bertamini.net/login-callback`}>pincha aquí</a> o <a href="net.bertamini.gmadridnatacion://login-callback">aquí</a> y <a href="https://movistar.es/citaprevia">test</a> y <a href="https://appweb.movistar.es/pages/appointment-booking">app booking</a> .
+                        </p>
+                        <p>
+                            <a href={appLink}>Link app</a>
                         </p>
                         {/*<div className="mt-4 sm:mt-6">*/}
                         {/*    <a*/}
