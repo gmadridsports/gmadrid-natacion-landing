@@ -20,7 +20,7 @@ export default function Home() {
                             Acceso a la aplicación
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Casi estás. Para acceder a la aplicación, sigue los siguientes pasos:
+                            Casi estás. Para acceder a la aplicación, <a href={window.location.href}>pincha aquí</a>
                         </p>
                         {/*<div className="mt-4 sm:mt-6">*/}
                         {/*    <a*/}
