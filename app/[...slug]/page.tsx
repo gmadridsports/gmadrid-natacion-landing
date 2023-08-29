@@ -2,7 +2,7 @@
 import Image from 'next/image'
 
 export default function Home() {
-    const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatation.bertamini.net');
+    const appLink = window.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net');
     return(
         <>
             <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
