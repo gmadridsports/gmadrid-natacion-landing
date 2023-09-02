@@ -31,14 +31,14 @@ export default function Home() {
                             Acceso a la aplicación
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Casi estás.
+                            Acceso realizado, ¡casi estás!
                         </p>
-                        <p className="mt-6">
+                        <p className="mt-6 text-center">
                             <a
                                 className="inline-block px-5 py-3 rounded-lg transform transition bg-blue-500 hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
                                 href={appLink}
                             >
-                                Acceder
+                                Abre la aplicación
                             </a>
                         </p>
                     </div>
