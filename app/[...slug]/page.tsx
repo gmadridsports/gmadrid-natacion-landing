@@ -33,9 +33,9 @@ export default function Home() {
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
                             Acceso realizado, ¡casi estás!
                         </p>
-                        <p className="mt-6 text-center">
+                        <p className="mt-8 text-center">
                             <a
-                                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue-500 hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
+                                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
                                 href={appLink}
                             >
                                 Abre la aplicación
