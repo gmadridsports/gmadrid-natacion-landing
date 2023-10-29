@@ -1,50 +1,38 @@
-"use client"
 import Image from 'next/image'
-import {useEffect, useMemo, useState} from "react";
 
-export default function Home() {
-    const [appLink, setAppLink] = useState('#');
+import dynamic from 'next/dynamic'
+import BetaSubscriptionForm from "@/app/apuntate/beta-subscription-form";
 
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
+export default function Apuntate() {
 
-        setAppLink(window?.location.href.replace(/^https\:\/\/authgmadridnatacion\.bertamini\.net/, 'https://gmadridnatacion.bertamini.net'));
-
-    }, []);
-
-    return(
+    return (
         <>
             <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
                 <div
                     className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-3"
                 >
                     <div className="xl:max-w-xl">
-                        <img className="h-10" src="/img/logo.svg" alt="GMadrid Natación logo" />
+                        <img className="h-10" src="/img/logo.svg" alt="GMadrid Natación logo"/>
                         <img
-                            className="rounded-lg drop-shadow-xl h-60 sm:h-96 w-full  object-cover object-top lg:hidden"
+                            className="rounded-lg h-60 sm:h-96 w-full  object-cover object-top lg:hidden"
                             src="/img/demo.png"
                             alt="Pantallazo de la aplicación"
                         />
                         <h1
                             className="mt-6 bg text-2xl font-bold text-gray-900 sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl"
                         >
-                            Acceso a la aplicación
+                            Apúntate a la beta
                         </h1>
                         <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Acceso realizado, ¡casi estás!
+                            La aplicación está todavía en una fase de prueba. Apúntate entre los beta-testers rellenando
+                            el formulario. Serás contactado con las instrucciones para instalarla.
                         </p>
-                        <p className="mt-8 text-center">
-                            <a
-                                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
-                                href={appLink}
-                            >
-                                Abre la aplicación
-                            </a>
-                        </p>
+                        <BetaSubscriptionForm />
                     </div>
                 </div>
                 <div className="hidden relative lg:block 2xl:col-span-2">
-                    <div className="absolute mt-10 ml-8 h-full w-60 -inset-0 rounded-lg bg-gradient-radial from-blue-500 via-blue-500 to-transparent opacity-30 blur transition duration-100 "></div>
+                    <div
+                        className="absolute mt-10 ml-8 h-full w-60 -inset-0 rounded-lg "></div>
                     <img
                         className="absolute w-72 mb-6 object-center "
                         src="/img/demo.png"
