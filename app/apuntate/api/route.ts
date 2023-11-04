@@ -1,7 +1,8 @@
 import { NextResponse, NextRequest } from 'next/server'
+import {verify} from 'hcaptcha';
+
 const nodemailer = require('nodemailer');
 export async function POST(request: NextRequest) {
-
     // return NextResponse.json({ message: "Success: email was sent" })
     const smtpAddress = process.env.SMTP_ADDRESS;
     const smtpPort = process.env.SMTP_PORT;
@@ -13,7 +14,12 @@ export async function POST(request: NextRequest) {
     const name = formData.get('name');
     const brandModel = formData.get('brandModel');
     const email = formData.get('email');
-    const captchaToken = formData.get('g-recaptcha-response');
+    const captchaToken = formData.get('g-recaptcha-response')?.toString() ?? '';
+
+    const captchaVerified = await verify(process.env.CAPTCHA_SECRET ?? '', captchaToken, undefined, process.env.CAPTCHA_SITE_KEY);
+    if (!captchaVerified.success) {
+        return NextResponse.json({ error: 'Captcha incorrecto' }, { status: 400 });
+    }
 
     const transporter = nodemailer.createTransport({
         host: smtpAddress,
@@ -44,7 +50,6 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ message: "Success: email was sent" })
 
     } catch (error) {
-        console.log(error)
-        return NextResponse.json({ error: 'Unexpected error while sendind the message' }, { status: 500 });
+        return NextResponse.json({ error: 'Error al guardar tu petición. ¡Contacta a Matteo!'}, { status: 500 });
     }
 }

@@ -13,7 +13,9 @@ export default function BetaSubscriptionForm() {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [subscriptionResult, setSubscriptionResult] = useState<null | boolean>(null);
+    const [subscriptionResultError, setSubscriptionResultError] = useState<string|null>(null);
     const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
     const handleVerificationSuccess = (token: string) => {
         setVerificationCaptcha(false);
         setCaptchaToken(token);
@@ -21,12 +23,18 @@ export default function BetaSubscriptionForm() {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+
+        setSubscriptionResultError(null);
         setIsSubmitting(true);
         const formData = new FormData(e.target);
 
         const response = await fetch('/apuntate/api', {method: 'POST', body: formData});
 
         setSubscriptionResult(response.status === 200);
+        if (response.status !== 200) {
+            setSubscriptionResultError(await JSON.parse(await response.text()).error);
+        }
+
         setName('');
         setBrandModel('');
         setEmail('');
@@ -48,7 +56,7 @@ export default function BetaSubscriptionForm() {
             {subscriptionResult === false && (
                 <div className="bg-red-100 mb-8 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                     <strong className="font-bold">Ups</strong>
-                    <span className="block sm:inline"> No he conseguido apuntarte, reintenta.</span>
+                    <span className="block sm:inline"> No he conseguido apuntarte: {subscriptionResultError}</span>
                     <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
   </span>
                 </div>
@@ -63,7 +71,7 @@ export default function BetaSubscriptionForm() {
                 <div className="md:w-2/3">
                     <input
                         name="name"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !!subscriptionResult}
                         className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" onChange={(evt) => setName(evt.currentTarget.value)}
                         value={name}/>
@@ -78,7 +86,7 @@ export default function BetaSubscriptionForm() {
                 </div>
                 <div className="md:w-2/3">
                     <input
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !!subscriptionResult}
                         className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" value={brandModel}
                         onChange={(evt) => setBrandModel(evt.currentTarget.value)}
@@ -95,7 +103,7 @@ export default function BetaSubscriptionForm() {
                 </div>
                 <div className="md:w-2/3">
                     <input
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !!subscriptionResult}
                         className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" value={email}
                         onChange={(evt) => setEmail(evt.currentTarget.value)}
@@ -115,7 +123,7 @@ export default function BetaSubscriptionForm() {
                 <div className="md:w-1/3"></div>
                 <div className="md:w-2/3">
                     <Button
-                        disabled={isSubmitting || verificationCaptcha || !email || !name || !brandModel}
+                        disabled={isSubmitting || verificationCaptcha || !email || !name || !brandModel || !!subscriptionResult}
                         type="submit"
                     >
                         {isSubmitting && ('Espera...')}

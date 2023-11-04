@@ -5,7 +5,6 @@ import BetaSubscriptionForm from "@/app/apuntate/beta-subscription-form";
 import Link from "next/link";
 
 export default function Apuntate() {
-
     return (
         <>
             <div className="mt-4 mb-28 grid mx-12 lg:mx-auto lg:max-w-5xl lg:grid-cols-5">
