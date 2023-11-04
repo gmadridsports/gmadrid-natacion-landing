@@ -1,6 +1,9 @@
 "use client"
 import Image from 'next/image'
 import {useEffect, useMemo, useState} from "react";
+import Link from "next/link";
+import BetaSubscriptionForm from "@/app/apuntate/beta-subscription-form";
+import Button from "@/app/components/button";
 
 export default function Home() {
     const [appLink, setAppLink] = useState('#');
@@ -14,61 +17,38 @@ export default function Home() {
 
     return(
         <>
-            <div className="bg-gray-100 grid lg:grid-cols-2 2xl:grid-cols-5 mb-28">
+            <div className="mt-4 mb-28 grid mx-12 lg:mx-auto lg:max-w-5xl lg:grid-cols-5">
                 <div
-                    className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-3"
+                    className="lg:col-span-3 "
                 >
-                    <div className="xl:max-w-xl">
-                        <img className="h-10" src="/img/logo.svg" alt="GMadrid Natación logo" />
-                        <img
-                            className="rounded-lg drop-shadow-xl h-60 sm:h-96 w-full  object-cover object-top lg:hidden"
-                            src="/img/demo.png"
-                            alt="Pantallazo de la aplicación"
-                        />
-                        <h1
-                            className="mt-6 bg text-2xl font-bold text-gray-900 sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl"
-                        >
-                            Acceso a la aplicación
-                        </h1>
-                        <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Acceso realizado, ¡casi estás!
-                        </p>
-                        <p className="mt-8 text-center">
-                            <a
-                                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
-                                href={appLink}
-                            >
-                                Abre la aplicación
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div className="hidden relative lg:block 2xl:col-span-2">
-                    <div className="absolute mt-10 ml-8 h-full w-60 -inset-0 rounded-lg bg-gradient-radial from-blue-500 via-blue-500 to-transparent opacity-30 blur transition duration-100 "></div>
+                    <Link href="../"><img className="h-10" src="/img/logo.svg" alt="GMadrid Natación logo"/></Link>
                     <img
-                        className="absolute w-72 mb-6 object-center "
+                        className="max-h h-60 w-full object-cover object-top drop-shadow-md lg:hidden"
+                        src="/img/demo-top.png"
+                        alt="Pantallazo de la aplicación"
+                    />
+                    <h1
+                        className="mt-6 bg text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 sm:mt-8"
+                    >
+                        Acceso a la aplicación
+                    </h1>
+                    <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
+                        Acceso realizado, ¡casi estás!
+                    </p>
+                    <p className="mt-8 text-center">
+                        <Button type="link" href={appLink}>
+
+                            Abre la aplicación
+                        </Button>
+                    </p>
+                </div>
+                <div className="hidden lg:block lg:col-span-2">
+                    <img
+                        className="absolute w-72 mb-6 object-center mt-20"
                         src="/img/demo.png"
                         alt="Pantallazo de la aplicación"
                     />
                 </div>
-            </div>
-
-            <div className="lg:fixed bottom-0 left-0 flex h-25 w-full bg-slate-50/70 justify-center">
-                <a
-                    className="flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-4"
-                    href="https://www.bertamini.net"
-                >
-                    By{' '}
-                    <Image
-                        src="https://www.bertamini.net/smiley-face.svg"
-                        alt="Vercel Logo"
-                        className="white:invert"
-                        width={24}
-                        height={24}
-                        priority
-                    />
-                    bertamini.net
-                </a>
             </div>
         </>
     );

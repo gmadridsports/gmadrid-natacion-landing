@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import dynamic from "next/dynamic";
+import Button from "@/app/components/button";
 
 const NoSSR = dynamic(() => import('@hcaptcha/react-hcaptcha'), {ssr: false})
 
@@ -40,6 +41,7 @@ export default function BetaSubscriptionForm() {
                      role="contentinfo">
                     <strong className="font-bold">Apuntado</strong>
                     <span className="block sm:inline"> Ya tenemos tu solicitud ✌🏼</span>
+                    <span><br/>El desarrollador se pondrá en contacto en unos días.</span>
                     <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
   </span>
                 </div>)}
@@ -62,7 +64,7 @@ export default function BetaSubscriptionForm() {
                     <input
                         name="name"
                         disabled={isSubmitting}
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" onChange={(evt) => setName(evt.currentTarget.value)}
                         value={name}/>
                 </div>
@@ -77,7 +79,7 @@ export default function BetaSubscriptionForm() {
                 <div className="md:w-2/3">
                     <input
                         disabled={isSubmitting}
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" value={brandModel}
                         onChange={(evt) => setBrandModel(evt.currentTarget.value)}
                         name="brandModel"/>
@@ -94,7 +96,7 @@ export default function BetaSubscriptionForm() {
                 <div className="md:w-2/3">
                     <input
                         disabled={isSubmitting}
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        className="bg-gray-200 appearance-none border-4 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         id="inline-full-name" type="text" value={email}
                         onChange={(evt) => setEmail(evt.currentTarget.value)}
                         name="email"/>
@@ -107,13 +109,18 @@ export default function BetaSubscriptionForm() {
                         sitekey="a9fb3ea9-c4e7-4643-b434-1dbf0774dbce"
                         onVerify={(token, ekey) => handleVerificationSuccess(token)}
                     />
-                    <button
+                </div>
+            </div>
+            <div className="md:flex md:items-center mt-6 mb-6 ">
+                <div className="md:w-1/3"></div>
+                <div className="md:w-2/3">
+                    <Button
                         disabled={isSubmitting || verificationCaptcha || !email || !name || !brandModel}
-                        className="mt-6 shadow bg-blue hover:bg-lightBlue-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="submit">
-                        {isSubmitting && ('Apuntando...')}
+                        type="submit"
+                    >
+                        {isSubmitting && ('Espera...')}
                         {!isSubmitting && ('Apúntame')}
-                    </button>
+                    </Button>
                 </div>
             </div>
         </form>
