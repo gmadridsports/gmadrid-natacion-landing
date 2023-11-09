@@ -9,14 +9,18 @@ const config: Config = {
     theme: {
         backgroundColor: theme => ({
             ...theme.colors,
-             'blue': '#4994EC',
+            'blue': '#4994EC',
         }),
-    //     extend: extend => ({
-    //         colors: {
-    //             ...extend.colors,
-    //             primary: '#4994EC',
-    //         }
-    //     }),
+        textColor: theme => ({
+            ...theme.colors,
+            'blue': '#4994EC',
+        })
+        //     extend: extend => ({
+        //         colors: {
+        //             ...extend.colors,
+        //             primary: '#4994EC',
+        //         }
+        //     }),
     },
     plugins: [],
 }
