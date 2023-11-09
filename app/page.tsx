@@ -1,8 +1,6 @@
 "use client"
-import Image from 'next/image'
 import Button from "@/app/components/button";
 import Link from "next/link";
-import BetaSubscriptionForm from "@/app/apuntate/beta-subscription-form";
 
 export default function Home() {
     return (
