@@ -1,19 +1,22 @@
 "use client"
-import {useSearchParams} from 'next/navigation'
+import {useParams} from 'next/navigation'
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import Button from "@/app/components/button";
 
 export default function Home() {
     const [appLink, setAppLink] = useState('#');
-    const searchParams = useSearchParams();
+    const params = useParams();
     const [showErrorAuth, setShowErrorAuth] = useState(false);
 
     useEffect(() => {
-        if (searchParams.has('error')) {
+        const hash = window.location.hash.substring(1);
+        const parsedHash = new URLSearchParams(hash);
+
+        if (parsedHash.has('error')) {
             setShowErrorAuth(true);
         }
-    }, [searchParams]);
+    }, [params]);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
