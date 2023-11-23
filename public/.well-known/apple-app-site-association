@@ -6,6 +6,12 @@
         "appID": "3DF559AM9R.net.bertamini.gmadrid.natacion.gmadridNatacion",
         "paths": ["*"]
       }
+    ],
+    "components": [
+      {
+        "/": "/*",
+        "comment": "Matches any URL"
+      }
     ]
   }
 }
