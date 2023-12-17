@@ -35,7 +35,7 @@ const Button = ({
                 }: ButtonPropsType) => {
     if (type === "link") {
         return (<a
-                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
+                className="inline-block px-5 py-3 rounded-lg transform transition bg-blue hover:bg-blue-600 hover:-translate-y-0.5 focus:ring-blue-600 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-blue-700 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base align-middle"
                 href={type === "link" ? (props.href) : "#"}
                 onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
             >
