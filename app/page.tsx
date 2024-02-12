@@ -29,8 +29,22 @@ export default function Home() {
                     <p className="mt-2 text-gray-600 sm:mt-1 sm:text-xl">
                         Con GMadrid Natación App podrás estar al tanto, para ser parte activa de GMadrid Natación.
                     </p>
-                    <div className="mt-4 sm:mt-6">
-                        <Button type="link" href="/apuntate">Instalar</Button>
+                    <div className="mt-10 sm:mt-14 flex flex-col place-items-center lg:place-items-start">
+                        <Link className="text-center object-center"
+                              href="https://apps.apple.com/es/app/gmadrid-nado/id6448366835?l=es-ES">
+                            <img
+                                className="w-44 text-center"
+                                src="/img/get-ios.svg"
+                                alt="Descarga en App Store"
+                            />
+                        </Link>
+                        <Link className="mt-3" href="/apuntate">
+                            <img
+                                className="w-44"
+                                src="/img/get-android.png"
+                                alt="Descarga en Google Play"
+                            />
+                        </Link>
                     </div>
                 </div>
                 <div className="hidden lg:block lg:col-span-2">
