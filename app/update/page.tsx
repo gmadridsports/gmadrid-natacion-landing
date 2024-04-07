@@ -34,7 +34,8 @@ function getMobileOperatingSystem() {
 
 export default function Update() {
     const searchParams = useSearchParams();
-    const downloadUrl = searchParams.get('downloadUrl');
+    const downloadUrlAndroid = searchParams.get('downloadUrlAndroid');
+    const downloadUrlIos = searchParams.get('downloadUrlIos');
     const [platform, setPlatform] = useState<'iOS' | 'Android' | 'unsupported'>('unsupported');
 
     useEffect(() => {
@@ -79,13 +80,13 @@ export default function Update() {
                     )}
                     {(platform === 'Android') && (
                         <div className="mt-4 sm:mt-6">
-                            <Button type="link" href={downloadUrl || "#"}>Descargar</Button>
+                            <Button type="link" href={downloadUrlAndroid || "#"}>Descargar</Button>
                         </div>
                     ) }
                     {(platform === 'iOS') && (
-                        <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-                            Usa Testlight para instalar la nueva versión beta de GMadrid Natación App.
-                        </p>
+                        <div className="mt-4 sm:mt-6">
+                            <Button type="link" href={downloadUrlIos || "#"}>Descargar</Button>
+                        </div>
                     )}
                 </div>
                 <div className="hidden lg:block lg:col-span-2">
