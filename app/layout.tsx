@@ -17,12 +17,11 @@ export default function RootLayout({children}: {
         <html lang="es">
         <body className={`${inter.className} bg-gray-100`}>
         {children}
-        <div className="lg:fixed bottom-0 left-0 flex h-25 w-full bg-slate-50/70 justify-center">
+        <div className="lg:fixed bottom-0 left-0 flex h-25 w-full bg-slate-50/70 justify-center flex items-center">
             <a
-                className="flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-4"
+                className="inline-flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-4 min-w-min flex-grow-1"
                 href="https://www.bertamini.net"
             >
-                By{' '}
                 <Image
                     src="https://www.bertamini.net/smiley-face.svg"
                     alt="Vercel Logo"
@@ -33,6 +32,9 @@ export default function RootLayout({children}: {
                 />
                 bertamini.net
             </a>
+            <a className="ineline-flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-4 flex-grow-0"
+               href="https://www.buymeacoffee.com/bertuz"><img width={200} height={50}
+                src="https://img.buymeacoffee.com/button-api/?text=Invítame a una cerve&emoji=🍺&slug=bertuz&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"/></a>
         </div>
         </body>
         </html>
